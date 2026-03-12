@@ -22,10 +22,14 @@ body {
 .app {
   min-height: 100vh;
   display: grid;
+  justify-items: center;
 }
 
 .screen {
   grid-area: 1 / 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
   opacity: 0;
   transform: translateX(24px);
   transition: opacity 0.35s ease, transform 0.35s ease;
@@ -40,8 +44,8 @@ body {
 
 .screen-inner {
   height: 100vh;
-  max-width: 480px;
-  margin: 0 auto;
+  width: 430px;
+  max-width: 100%;
   padding: clamp(24px, 6vw, 40px) clamp(18px, 6vw, 28px) clamp(24px, 6vw, 36px);
   display: flex;
   flex-direction: column;
@@ -80,7 +84,7 @@ h2 { font-size: clamp(22px, 5vw, 30px); }
 }
 
 .hero-can {
-  width: clamp(100px, 48vw, 260px);
+  width: clamp(180px, 48vw, 260px);
   position: absolute;
   bottom: clamp(120px, 26vw, 160px);
   z-index: 0;
@@ -292,19 +296,6 @@ h2 { font-size: clamp(22px, 5vw, 30px); }
 
 .reward-item .title { font-weight: 700; font-size: clamp(13px, 3vw, 16px); }
 .reward-item .desc { font-size: clamp(11px, 2.6vw, 13px); color: var(--muted); }
-
-.confetti::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, rgba(244,0,0,0.3) 0 4px, transparent 5px),
-    radial-gradient(circle, rgba(255,200,120,0.5) 0 3px, transparent 4px),
-    radial-gradient(circle, rgba(120,190,255,0.5) 0 3px, transparent 4px);
-  background-size: 80px 80px;
-  background-position: 0 0, 20px 30px, 40px 10px;
-  opacity: 0.4;
-  pointer-events: none;
-}
 
 .bubbles::before {
   content: "";
