@@ -1,244 +1,180 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Coca-Cola QR Experience</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-
-<style>
-
-body{
-margin:0;
-font-family:Inter, sans-serif;
-background:#f4f5f7;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-}
-
-.phone{
-width:390px;
-height:844px;
-background:white;
-border-radius:40px;
-box-shadow:0 20px 60px rgba(0,0,0,0.2);
-overflow:hidden;
-position:relative;
-}
-
-.screen{
-display:none;
-padding:30px;
-height:100%;
-box-sizing:border-box;
-text-align:center;
-}
-
-.active{
-display:block;
-}
-
-h1{
-font-size:34px;
-font-weight:800;
-color:#1b1f2a;
-margin-top:20px;
-}
-
-p{
-color:#6c7280;
-font-size:16px;
-line-height:1.4;
-}
-
-.badge{
-background:#e9f6ec;
-color:#4c7a52;
-display:inline-block;
-padding:8px 16px;
-border-radius:30px;
-font-size:14px;
-margin-bottom:15px;
-}
-
-.button{
-background:#c9491c;
-color:white;
-padding:18px;
-border-radius:40px;
-margin-top:20px;
-font-weight:600;
-cursor:pointer;
-}
-
-.secondary{
-background:none;
-color:#6c7280;
-margin-top:10px;
-}
-
-.card{
-background:linear-gradient(135deg,#9ad67a,#1b2420);
-border-radius:30px;
-padding:30px;
-color:white;
-margin:30px 0;
-text-align:left;
-}
-
-.uploadbox{
-border:2px dashed #b7c8e8;
-border-radius:30px;
-padding:40px;
-margin:20px 0;
-}
-
-.reward{
-background:#f5f5f7;
-border-radius:20px;
-padding:18px;
-margin:12px 0;
-text-align:left;
-}
-
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coca-Cola QR Rewards Prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
+  <div class="page">
+    <header class="demo-header">
+      <div class="demo-title">Coca-Cola QR Rewards</div>
+      <div class="demo-controls">
+        <button class="nav-btn" data-target="0">1</button>
+        <button class="nav-btn" data-target="1">2</button>
+        <button class="nav-btn" data-target="2">3</button>
+        <button class="nav-btn" data-target="3">4</button>
+        <button class="nav-btn" data-target="4">5</button>
+      </div>
+    </header>
 
-<div class="phone">
+    <main class="frame-wrap">
+      <div class="phone-frame">
+        <div class="web-bar">
+          <span class="lock">🔒</span>
+          <span class="url">coca-cola.com/rewards</span>
+        </div>
 
-<!-- SCREEN 1 -->
+        <section class="screen is-active" id="screen-1">
+          <div class="screen-inner">
+            <img class="logo" src="assets/cocacola-logo.png" alt="Coca-Cola" />
+            <h1>Your Coca-Cola is unlocked.</h1>
 
-<div id="screen1" class="screen active">
+            <div class="hero-stack">
+              <img class="hero-can" src="assets/cocacola-can.png" alt="Coca-Cola can" />
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Coca-Cola_logo.svg" width="150">
+              <div class="signin-panel">
+                <button class="btn btn-outline" data-target="1">
+                  <img src="assets/apple.svg" alt="Apple" class="btn-icon" />
+                  <span>Continue with Apple</span>
+                </button>
+                <button class="btn btn-outline" data-target="1">
+                  <img src="assets/google.png" alt="Google" class="btn-icon" />
+                  <span>Continue with Google</span>
+                </button>
+                <button class="btn btn-outline" data-target="1">
+                  <img src="assets/spotify.png" alt="Spotify" class="btn-icon" />
+                  <span>Continue with Spotify</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
 
-<h1>Your Coca-Cola is unlocked.</h1>
+        <section class="screen" id="screen-2">
+          <div class="screen-inner">
+            <h2>Good morning Martin 👋</h2>
+            <p class="sub">Need focus for your morning meetings? Here’s something to keep you energized.</p>
 
-<p>Sign in to unlock your reward</p>
+            <div class="reward-card">
+              <div class="reward-row">
+                <div class="spotify-badge">
+                  <img src="assets/spotify-white.png" alt="Spotify" />
+                </div>
+                <span>Spotify Premium</span>
+                <span class="pill">Premium</span>
+              </div>
+              <div class="kicker">Coca-Cola × Spotify</div>
+              <div class="reward-title">Spotify Premium 30 minutes</div>
+              <div class="reward-sub">Ad-free listening. Focus mode on.</div>
+            </div>
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Coca-Cola_can.svg/512px-Coca-Cola_can.svg.png" width="120" style="margin:30px 0">
+            <div class="bottom-block">
+              <button class="btn btn-primary" data-target="2">Activate Reward</button>
+              <p class="fine">This reward is personalized based on your location and preferences.</p>
+            </div>
+          </div>
+        </section>
 
-<div class="button" onclick="next(2)">Continue with Apple</div>
-<div class="button" onclick="next(2)">Continue with Google</div>
-<div class="button" onclick="next(2)">Continue with Spotify</div>
+        <section class="screen" id="screen-3">
+          <div class="screen-inner">
+            <div class="pill-success">✓ Reward unlocked</div>
+            <h1>Upgrade your reward</h1>
+            <p class="sub">Upload your supermarket receipt to unlock VIP experiences.</p>
 
-</div>
+            <div class="receipt-illustration">
+              <div class="receipt-card">
+                <span></span><span></span><span></span><span></span><span class="red"></span>
+              </div>
+              <div class="scan-frame"></div>
+            </div>
 
-<!-- SCREEN 2 -->
+            <div class="mini-cards">
+              <div class="mini-card">✨<span>Festivals</span></div>
+              <div class="mini-card">🎮<span>Gaming</span></div>
+              <div class="mini-card">⭐<span>VIP</span></div>
+            </div>
 
-<div id="screen2" class="screen">
+            <div class="bottom-block">
+              <button class="btn btn-primary" data-target="3">Upload Receipt</button>
+              <button class="btn btn-secondary" data-target="4">Skip for now</button>
+            </div>
+          </div>
+        </section>
 
-<h1 style="font-size:28px">Good morning Martin 👋</h1>
+        <section class="screen" id="screen-4">
+          <div class="screen-inner">
+            <div class="pill-success">✓ Receipt verified</div>
+            <h1>You’re in the Coca-Cola Inner Circle</h1>
+            <p class="sub">Our AI analyzed your receipt and unlocked premium rewards.</p>
 
-<p>Need focus for your morning meetings?<br>Here's something to keep you energized.</p>
+            <div class="rewards-list">
+              <div class="reward-item">
+                <div class="icon">🎟️</div>
+                <div>
+                  <div class="title">Festival Tickets</div>
+                  <div class="desc">VIP access to summer events</div>
+                </div>
+              </div>
+              <div class="reward-item">
+                <div class="icon">🎮</div>
+                <div>
+                  <div class="title">Gaming Events</div>
+                  <div class="desc">Exclusive esports tournaments</div>
+                </div>
+              </div>
+              <div class="reward-item">
+                <div class="icon">⭐</div>
+                <div>
+                  <div class="title">VIP Access</div>
+                  <div class="desc">Behind the scenes passes</div>
+                </div>
+              </div>
+            </div>
 
-<div class="card">
-<h2>Spotify Premium</h2>
-<p>30 minutes<br>Ad-free listening. Focus mode on.</p>
-</div>
+            <div class="bottom-block">
+              <button class="btn btn-primary" data-target="4">View My Rewards</button>
+              <p class="fine">We’ll personalize future rewards based on your purchases.</p>
+            </div>
+          </div>
+          <div class="confetti"></div>
+        </section>
 
-<div class="button" onclick="next(3)">Activate Reward</div>
+        <section class="screen" id="screen-5">
+          <div class="screen-inner">
+            <div class="pill-success">✓ Reward activated</div>
+            <h1>Your Spotify reward is ready.</h1>
 
-<p style="margin-top:15px;font-size:13px">This reward is personalized based on your location and preferences.</p>
+            <div class="reward-card">
+              <div class="reward-row">
+                <div class="spotify-badge">
+                  <img src="assets/spotify-white.png" alt="Spotify" />
+                </div>
+                <span>Spotify Premium</span>
+                <span class="pill">Premium</span>
+              </div>
+              <div class="kicker">Coca-Cola × Spotify</div>
+              <div class="reward-title">Spotify Premium 30 minutes</div>
+              <div class="reward-sub">Ad-free listening. Focus mode on.</div>
+            </div>
 
-</div>
+            <p class="sub">You can upload a receipt later to unlock VIP experiences.</p>
 
-<!-- SCREEN 3 -->
+            <div class="bottom-block">
+              <button class="btn btn-primary" data-target="4">Open Spotify Reward</button>
+              <button class="btn btn-secondary" data-target="0">Upgrade Later</button>
+            </div>
+          </div>
+          <div class="bubbles"></div>
+        </section>
+      </div>
+    </main>
+  </div>
 
-<div id="screen3" class="screen">
-
-<div class="badge">Reward unlocked</div>
-
-<h1>Upgrade your reward</h1>
-
-<p>Upload your supermarket receipt to unlock VIP experiences.</p>
-
-<div class="uploadbox">
-📷 Upload Receipt
-</div>
-
-<div style="display:flex;justify-content:space-around">
-
-<div class="reward">Festivals</div>
-<div class="reward">Gaming</div>
-<div class="reward">VIP</div>
-
-</div>
-
-<div class="button" onclick="next(4)">Upload Receipt</div>
-
-<div class="secondary" onclick="next(5)">Skip for now</div>
-
-</div>
-
-<!-- SCREEN 4 -->
-
-<div id="screen4" class="screen">
-
-<div class="badge">Receipt verified</div>
-
-<h1>You're in the Coca-Cola Inner Circle</h1>
-
-<p>Our AI analyzed your receipt and unlocked premium rewards.</p>
-
-<div class="reward">
-<strong>Festival Tickets</strong><br>
-VIP access to summer events
-</div>
-
-<div class="reward">
-<strong>Gaming Events</strong><br>
-Exclusive esports tournaments
-</div>
-
-<div class="reward">
-<strong>VIP Access</strong><br>
-Behind the scenes passes
-</div>
-
-<div class="button">View My Rewards</div>
-
-</div>
-
-<!-- SCREEN 5 -->
-
-<div id="screen5" class="screen">
-
-<div class="badge">Reward activated</div>
-
-<h1>Your Spotify reward is ready.</h1>
-
-<div class="card">
-<h2>Spotify Premium</h2>
-<p>30 minutes<br>Ad-free listening</p>
-</div>
-
-<p>You can upload a receipt later to unlock VIP experiences.</p>
-
-<div class="button">Open Spotify Reward</div>
-
-<div class="secondary">Upgrade Later</div>
-
-</div>
-
-</div>
-
-<script>
-
-function next(n){
-
-document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"))
-document.getElementById("screen"+n).classList.add("active")
-
-}
-
-</script>
-
+  <script src="app.js"></script>
 </body>
 </html>
